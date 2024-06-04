@@ -88,5 +88,50 @@ public class GaussianElimination {
   }
 }
 
+public class BinaryCount {
+  public static int binaryCount(int n) {
+      int count = 1;
+      while (n > 1) {
+          count++;
+          n /= 2;
+      }
+      return count;
+  }
+
+  public static void main(String[] args) {
+      int n = 19;
+      System.out.println("Number of binary digits: " + binaryCount(n));
+  }
+}
+
+public class Factorial {
+  public static int factorial(int n) {
+      if (n == 0) return 1;
+      else return factorial(n - 1) * n;
+  }
+
+  public static void main(String[] args) {
+      int n = 5;
+      System.out.println("Factorial of " + n + " is " + factorial(n));
+  }
+}
+
+public class TowerOfHanoi {
+  public static void towerOfHanoi(int n, char source, char auxiliary, char destination) {
+      if (n == 1) {
+          System.out.println("Move disk from " + source + " to " + destination);
+          return;
+      }
+      towerOfHanoi(n - 1, source, destination, auxiliary);
+      System.out.println("Move disk from " + source + " to " + destination);
+      towerOfHanoi(n - 1, auxiliary, source, destination);
+  }
+
+  public static void main(String[] args) {
+      int n = 3;
+      towerOfHanoi(n, 'A', 'B', 'C');
+  }
+}
+
  
 }
