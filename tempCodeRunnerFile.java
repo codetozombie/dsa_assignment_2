@@ -87,7 +87,7 @@ public class Main {
     }
 
     private static void handleMatrixMultiplication(Scanner scanner) {
-        System.out.println("Enter the size of the matrices (n x n): Just enter the n");
+        System.out.println("Enter the size of the matrices (n x n):");
         int n3 = scanner.nextInt();
         double[][] A = new double[n3][n3];
         double[][] B = new double[n3][n3];
