@@ -1,135 +1,143 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         while (true) {
-            System.out.println("Select an algorithm to run:");
-            System.out.println("1. Maximum Element");
-            System.out.println("2. Element Uniqueness");
-            System.out.println("3. Matrix Multiplication");
-            System.out.println("4. Gaussian Elimination");
-            System.out.println("5. Counting Binary");
-            System.out.println("6. Factorial");
-            System.out.println("7. Tower of Hanoi");
-            System.out.println("8. Fibonacci");
-            System.out.println("9. Exit");
-            int choice = scanner.nextInt();
+            try {
+                System.out.println("Select an algorithm to run:");
+                System.out.println("1. Maximum Element");
+                System.out.println("2. Element Uniqueness");
+                System.out.println("3. Matrix Multiplication");
+                System.out.println("4. Gaussian Elimination");
+                System.out.println("5. Counting Binary");
+                System.out.println("6. Factorial");
+                System.out.println("7. Tower of Hanoi");
+                System.out.println("8. Fibonacci");
+                System.out.println("9. Exit");
+                int choice = scanner.nextInt();
 
-            switch (choice) {
-                case 1:
-                    // Maximum Element
-                    System.out.println("Enter the number of elements:");
-                    int n1 = scanner.nextInt();
-                    double[] array1 = new double[n1];
-                    System.out.println("Enter the elements:");
-                    for (int i = 0; i < n1; i++) {
-                        array1[i] = scanner.nextDouble();
-                    }
-                    System.out.println("Maximum element: " + MaxElement.maxElement(array1));
-                    break;
-
-                case 2:
-                    // Element Uniqueness
-                    System.out.println("Enter the number of elements:");
-                    int n2 = scanner.nextInt();
-                    double[] array2 = new double[n2];
-                    System.out.println("Enter the elements:");
-                    for (int i = 0; i < n2; i++) {
-                        array2[i] = scanner.nextDouble();
-                    }
-                    System.out.println("Elements are unique: " + UniqueElements.uniqueElements(array2));
-                    break;
-
-                case 3:
-                    // Matrix Multiplication
-                    System.out.println("Enter the size of the matrices (n x n):");
-                    int n3 = scanner.nextInt();
-                    double[][] A = new double[n3][n3];
-                    double[][] B = new double[n3][n3];
-                    System.out.println("Enter the elements of matrix A:");
-                    for (int i = 0; i < n3; i++) {
-                        for (int j = 0; j < n3; j++) {
-                            A[i][j] = scanner.nextDouble();
+                switch (choice) {
+                    case 1:
+                        // Maximum Element
+                        System.out.println("Enter the number of elements:");
+                        int n1 = scanner.nextInt();
+                        double[] array1 = new double[n1];
+                        System.out.println("Enter the elements:");
+                        for (int i = 0; i < n1; i++) {
+                            array1[i] = scanner.nextDouble();
                         }
-                    }
-                    System.out.println("Enter the elements of matrix B:");
-                    for (int i = 0; i < n3; i++) {
-                        for (int j = 0; j < n3; j++) {
-                            B[i][j] = scanner.nextDouble();
+                        System.out.println("Maximum element: " + MaxElement.maxElement(array1));
+                        break;
+
+                    case 2:
+                        // Element Uniqueness
+                        System.out.println("Enter the number of elements:");
+                        int n2 = scanner.nextInt();
+                        double[] array2 = new double[n2];
+                        System.out.println("Enter the elements:");
+                        for (int i = 0; i < n2; i++) {
+                            array2[i] = scanner.nextDouble();
                         }
-                    }
-                    double[][] C = MatrixMultiplication.matrixMultiplication(A, B);
-                    System.out.println("Resultant matrix C:");
-                    for (double[] row : C) {
-                        for (double val : row) {
-                            System.out.print(val + " ");
+                        System.out.println("Elements are unique: " + UniqueElements.uniqueElements(array2));
+                        break;
+
+                    case 3:
+                        // Matrix Multiplication
+                        System.out.println("Enter the size of the matrices (n x n):");
+                        int n3 = scanner.nextInt();
+                        double[][] A = new double[n3][n3];
+                        double[][] B = new double[n3][n3];
+                        System.out.println("Enter the elements of matrix A:");
+                        for (int i = 0; i < n3; i++) {
+                            for (int j = 0; j < n3; j++) {
+                                A[i][j] = scanner.nextDouble();
+                            }
                         }
-                        System.out.println();
-                    }
-                    break;
-
-                case 4:
-                    // Gaussian Elimination
-                    System.out.println("Enter the size of the matrix (n x (n+1)):");
-                    int n4 = scanner.nextInt();
-                    double[][] matrix = new double[n4][n4 + 1];
-                    System.out.println("Enter the elements of the matrix:");
-                    for (int i = 0; i < n4; i++) {
-                        for (int j = 0; j <= n4; j++) {
-                            matrix[i][j] = scanner.nextDouble();
+                        System.out.println("Enter the elements of matrix B:");
+                        for (int i = 0; i < n3; i++) {
+                            for (int j = 0; j < n3; j++) {
+                                B[i][j] = scanner.nextDouble();
+                            }
                         }
-                    }
-                    GaussianElimination.gaussianElimination(matrix);
-                    System.out.println("Matrix after Gaussian Elimination:");
-                    for (double[] row : matrix) {
-                        for (double val : row) {
-                            System.out.print(val + " ");
+                        double[][] C = MatrixMultiplication.matrixMultiplication(A, B);
+                        System.out.println("Resultant matrix C:");
+                        for (double[] row : C) {
+                            for (double val : row) {
+                                System.out.print(val + " ");
+                            }
+                            System.out.println();
                         }
-                        System.out.println();
-                    }
-                    break;
+                        break;
 
-                case 5:
-                    // Counting Binary
-                    System.out.println("Enter a positive decimal integer:");
-                    int n5 = scanner.nextInt();
-                    System.out.println("Number of binary digits in " + n5 + ": " + BinaryCount.binaryCount(n5));
-                    break;
+                    case 4:
+                        // Gaussian Elimination
+                        System.out.println("Enter the size of the matrix (n x (n+1)):");
+                        int n4 = scanner.nextInt();
+                        double[][] matrix = new double[n4][n4 + 1];
+                        System.out.println("Enter the elements of the matrix:");
+                        for (int i = 0; i < n4; i++) {
+                            for (int j = 0; j <= n4; j++) {
+                                matrix[i][j] = scanner.nextDouble();
+                            }
+                        }
+                        GaussianElimination.gaussianElimination(matrix);
+                        System.out.println("Matrix after Gaussian Elimination:");
+                        for (double[] row : matrix) {
+                            for (double val : row) {
+                                System.out.print(val + " ");
+                            }
+                            System.out.println();
+                        }
+                        break;
 
-                case 6:
-                    // Factorial
-                    System.out.println("Enter a nonnegative integer:");
-                    int n6 = scanner.nextInt();
-                    System.out.println("Factorial of " + n6 + ": " + Factorial.factorial(n6));
-                    break;
+                    case 5:
+                        // Counting Binary
+                        System.out.println("Enter a positive decimal integer:");
+                        int n5 = scanner.nextInt();
+                        System.out.println("Number of binary digits in " + n5 + ": " + BinaryCount.binaryCount(n5));
+                        break;
 
-                case 7:
-                    // Tower of Hanoi
-                    System.out.println("Enter the number of disks:");
-                    int n7 = scanner.nextInt();
-                    System.out.println("Tower of Hanoi moves:");
-                    TowerOfHanoi.towerOfHanoi(n7, 'A', 'B', 'C');
-                    break;
+                    case 6:
+                        // Factorial
+                        System.out.println("Enter a nonnegative integer:");
+                        int n6 = scanner.nextInt();
+                        System.out.println("Factorial of " + n6 + ": " + Factorial.factorial(n6));
+                        break;
 
-                case 8:
-                    // Fibonacci
-                    System.out.println("Enter the index of the Fibonacci number to generate:");
-                    int n8 = scanner.nextInt();
-                    System.out.println("Fibonacci number at index " + n8 + ": " + Fibonacci.fibonacci(n8));
-                    break;
+                    case 7:
+                        // Tower of Hanoi
+                        System.out.println("Enter the number of disks:");
+                        int n7 = scanner.nextInt();
+                        System.out.println("Tower of Hanoi moves:");
+                        TowerOfHanoi.towerOfHanoi(n7, 'A', 'B', 'C');
+                        break;
 
-                case 9:
-                    // Exit
-                    System.out.println("Exiting...");
-                    scanner.close();
-                    return;
+                    case 8:
+                        // Fibonacci
+                        System.out.println("Enter the index of the Fibonacci number to generate:");
+                        int n8 = scanner.nextInt();
+                        System.out.println("Fibonacci number at index " + n8 + ": " + Fibonacci.fibonacci(n8));
+                        break;
 
-                default:
-                    System.out.println("Invalid choice. Please select a valid option.");
+                    case 9:
+                        // Exit
+                        System.out.println("Exiting...");
+                        scanner.close();
+                        return;
+
+                    default:
+                        System.out.println("Invalid choice. Please select a valid option.");
+                }
+
+                System.out.println();
+            } catch (InputMismatchException e) {
+                System.out.println("Invalid input. Please enter the correct type of input.");
+                scanner.nextLine();  // Clear the invalid input
+            } catch (Exception e) {
+                System.out.println("An error occurred: " + e.getMessage());
             }
-
-            System.out.println();
         }
     }
 }
