@@ -132,6 +132,24 @@ public class TowerOfHanoi {
       towerOfHanoi(n, 'A', 'B', 'C');
   }
 }
+public class Fibonacci {
+  public static int fibonacci(int n) {
+      if (n == 0) return 0;
+      if (n == 1) return 1;
+      int a = 0, b = 1;
+      for (int i = 2; i <= n; i++) {
+          int nextFib = a + b;
+          a = b;
+          b = nextFib;
+      }
+      return b;
+  }
 
- 
+  public static void main(String[] args) {
+      int n = 10;
+      System.out.println("Fibonacci number at index " + n + " is " + fibonacci(n));
+  }
+}
+
+
 }
